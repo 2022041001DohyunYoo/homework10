@@ -198,7 +198,7 @@ void levelOrder(Node* ptr)
 
 	while(1)//무한 반복
 	{
-		ptr = deQueue(); //큐에서 노드 하나 빼서 ptr에 저장
+		ptr = deQueue(); //큐에서 노드 하나 빼서 ptr에 저장`
         //ptr이 NULL이 아니면
 		if(ptr) {
             //키 값 출력
@@ -467,7 +467,6 @@ Node* deQueue()
 {   
     //만약 큐가 비어 있으면 오류 출력 후 종료
     if (front == rear) {
-		printf("\n....Now Queue is empty!!\n" );
 		return NULL;
 	}
 
@@ -478,14 +477,15 @@ Node* deQueue()
 
 void enQueue(Node* aNode)
 {
-    //만약 큐가 비어 있으면 오류 출력 후 종료
+    //rear를 한칸 앞으로 이동 
+    rear = (rear + 1) % MAX_QUEUE_SIZE;
+
+    //만약 큐가 가득 차 있으면 오류 출력 후 종료
 	if (front == rear) {
-		printf("\n....Now Queue is full!!\n");
 		return;
 	}
-
-    //rear를 한칸 앞으로 이동 후 aNode를 삽입
-    rear = (rear + 1) % MAX_QUEUE_SIZE;
+	
+	//aNode를 삽입
 	queue[rear] = aNode;
 }
 
