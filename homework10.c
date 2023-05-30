@@ -61,6 +61,7 @@ int main()
 	int key;
 	Node* head = NULL;
 
+		printf("[-----[유도현][2022041001]-----]");
 	do{
         //양식
 		printf("\n\n");
